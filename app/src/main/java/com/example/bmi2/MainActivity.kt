@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.example.bmi2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +22,11 @@ class MainActivity : AppCompatActivity() {
         //可變變數體重的值為binding裡的體重的資料轉文字再轉浮點數
         var height=binding.edHeight.text.toString().toFloat()
         val bmi =weight/(height*height)
-        Log.d("BMI為",bmi.toString())
+        Log.d("BMI為",bmi.toString())  //Logcat除錯匡訊息顯示bmi
+        Toast.makeText(this,bmi.toString(),Toast.LENGTH_LONG).show()//顯示bmi在小訊息匡
+
+
+
 
     }
 }
