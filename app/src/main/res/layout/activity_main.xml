@@ -83,4 +83,13 @@
         android:text="calcul bmi"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ed_height" />
+
+    <TextView
+        android:id="@+id/tvbmi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/b_calcul" />
 </androidx.constraintlayout.widget.ConstraintLayout>
