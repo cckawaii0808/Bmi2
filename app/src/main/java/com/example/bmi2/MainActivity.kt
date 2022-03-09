@@ -9,8 +9,11 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.example.bmi2.databinding.ActivityMainBinding
+import com.google.android.material.tabs.TabLayout
 
 class MainActivity : AppCompatActivity() {
+    private val TAG=ResultActivity::class.java.simpleName
+    val REQUEST_DISPLAY_BMI=16
     lateinit var binding: ActivityMainBinding //lateinit 晚點給
     override fun onCreate(savedInstanceState: Bundle?) { //oncreate 一定會被執行
         super.onCreate(savedInstanceState)
@@ -42,11 +45,21 @@ class MainActivity : AppCompatActivity() {
                 binding.edWeight.setText("")
             }
             .show()
-
         //下面開始轉換第二個畫面Activity
         val intent = Intent(this, ResultActivity::class.java)
-        intent.putExtra("Bmi",bmi)//帶一個東西，先取一個標籤名，再取那個東西過去
-        startActivity(intent)//注意不要選到有Ｓ的startActivity
+        intent.putExtra("Bmi", bmi)//帶一個東西，先取一個標籤名，再取那個東西過去
+        //startActivity(intent)//注意不要選到有Ｓ的startActivity
+        startActivityForResult(intent,REQUEST_DISPLAY_BMI)
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)//在方法外面按ctrl+O 找複寫
+         Log.d(TAG,"onActivityResult")
+        if (requestCode== REQUEST_DISPLAY_BMI&&resultCode== RESULT_OK){
+            Log.d(TAG,"back from ResultActivity")
+        }
+
 
     }
 }
