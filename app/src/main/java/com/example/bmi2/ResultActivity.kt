@@ -28,7 +28,7 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun showBmi() {
-        val bmi = intent.getFloatExtra("Bmi", 0f)  //獲得標籤ＢＭＩ標籤的 以及如果沒有收到資料的預設值  //comand+M抽出
+        val bmi = intent.getFloatExtra("Bmi", 0f)  //獲得標籤ＢＭＩ標籤的 以及如果沒有收到資料的預設值  //comand+ALTM抽出
         //且標籤名字要和上一頁的一樣 此處為      "Bmi"
         Log.d(TAG, "收到的BMI:$bmi")
         binding.bmidisplay.text=bmi.toString()
