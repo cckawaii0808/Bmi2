@@ -132,7 +132,7 @@ class MainActivity : AppCompatActivity() {
 
         override fun parseResult(resultCode: Int, intent: Intent?): String {
             if (resultCode == RESULT_OK) {
-                val name = intent?.getStringExtra("NAME")
+                val name = intent?.getStringExtra(Extras.NAME)
                 return name!!
             } else {
                 return "No name"
@@ -140,7 +140,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun createIntent(context: Context, input: Float?): Intent {
-            val data = Intent(context, ResultActivity::class.java).putExtra("Bmi", input)
+            val data = Intent(context, ResultActivity::class.java).putExtra(Extras.BMI, input)
             return data
         }
     }
